@@ -1,0 +1,219 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <link href="~/Content/Custom.css" rel="stylesheet" />
+    <link href="~/Content/CustomScroll.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            @* <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                     <li class="nav-item">
+                         <a class="nav-link active" aria-current="page" href="#">Home</a>
+                     </li>
+                     <li class="nav-item">
+                         <a class="nav-link" href="#">Link</a>
+                     </li>
+                     <li class="nav-item">
+                         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                     </li>
+                 </ul>*@
+            @*<form class="">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>*@
+            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                <ul class="navbar-nav  mb-2 mb-lg-0 d-flex me-2 float-end">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle drop" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-person features-item-icon"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Profile</a></li>
+                            <li><a class="dropdown-item" href="#">Change Password</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li>
+                                @Html.ActionLink("Logout", "Logout", "Account", null, new { @class = "dropdown-item" })
+                                @*
+                                    <a class="dropdown-item" href="#">Logout</a>*@
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+    <div class="sidebar">
+        <div class="logo-wrapper">
+            <div class="logo">
+                <img src="youtube.svg" width="125" alt="">
+            </div>
+            <div class="logo-button">
+                <i class="bi bi-arrow-bar-left" id="logo-icon"></i>
+            </div>
+        </div>
+
+        <ul class="features-list">
+            <li class="features-item">
+                <i class="bi bi-speedometer2 features-item-icon"></i>
+                @*<i class='bx bxs-dashboard features-item-icon'></i>*@
+                <span class="features-item-text">Dashbaord <i class="bi bi-chevron-compact-down float-end "></i></span>
+                @*<span class="tooltips">Dashbaord</span>*@
+                <ul class="submenu">
+                    <li class="features-sub-item">Home</li>
+                    <li class="features-sub-item">Report</li>
+                    <li class="features-sub-item">Category</li>
+                </ul>
+
+            </li>
+
+            <li class="features-item">
+                @*<i class='bx bxs-inbox features-item-icon'>*@
+                <i class="bi bi-envelope features-item-icon">
+                    <span class="status" style="--status: red"></span>
+                </i>
+                <span class="features-item-text">Inbox</span>
+                <span class="features-item-status" style="--status: red">99</span>
+                @*<span class="tooltips">Inbox</span>*@
+            </li>
+
+            <li class="features-item">
+                <i class="bi bi-calendar features-item-icon">
+                    <span class="status" style="--status: blue"></span>
+                </i>
+                <span class="features-item-text">Calendar</span>
+                <span class="features-item-status" style="--status:blue">10</span>
+                @*<span class="tooltips">Calendar</span>*@
+            </li>
+
+            <li class="features-item">
+                <i class="bi bi-chat features-item-icon"></i>
+                <span class="features-item-text">Chat <i class="bi bi-chevron-compact-down float-end"></i></span>
+                @*<span class="tooltips">Chat</span>*@
+                <ul class="submenu">
+                    <li class="features-sub-item">Home</li>
+                    <li class="features-sub-item">Report</li>
+                    <li class="features-sub-item">Category</li>
+                </ul>
+            </li>
+
+            <li class="features-item">
+                <i class="bi bi-receipt features-item-icon"></i>
+                <span class="features-item-text">Invoice</span>
+                @*<span class="tooltips">Invoice</span>*@
+            </li>
+
+            <li class="features-item">
+                <i class="bi bi-person features-item-icon"></i>
+                <span class="features-item-text">Profile</span>
+                @*<span class="tooltips">Profile</span>*@
+            </li>
+
+            <li class="features-item">
+                <i class="bi bi-gear-wide-connected  features-item-icon"></i>
+                <span class="features-item-text">Setting</span>
+                @*<span class="tooltips">Setting</span>*@
+            </li>
+        </ul>
+
+        <ul class="categories-list">
+            <div class="category-header">Message categories</div>
+            <li class="category-item">
+                <span class="category-item-status" style="--status: red"></span>
+                <span class="category-item-text">My Work</span>
+                <spa class="category-item-number">25</spa>
+                <span class="tooltips">My Work</span>
+            </li>
+            <li class="category-item">
+                <span class="category-item-status" style="--status: yellow"></span>
+                <span class="category-item-text">Meeting</span>
+                <spa class="category-item-number">15</spa>
+                <span class="tooltips">Meeting</span>
+            </li>
+            <li class="category-item">
+                <span class="category-item-status" style="--status: purple"></span>
+                <span class="category-item-text">Accountant</span>
+                <spa class="category-item-number">25</spa>
+                <span class="tooltips">Accountant</span>
+            </li>
+            <li class="category-item">
+                <span class="category-item-status" style="--status: indigo"></span>
+                <span class="category-item-text">My Work</span>
+                <spa class="category-item-number">25</spa>
+                <span class="tooltips">My Work</span>
+            </li>
+        </ul>
+    </div>
+
+    <div id="main" class="container body-content collapse-custom-main-lg" style="margin-top:56px;transition:0.5s ease-in-out">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+
+    <script type="text/javascript">
+        {
+            let sidebar = document.querySelector('.sidebar');
+            let arrowCollapse = document.querySelector('#logo-icon');
+            let Bodycontent = document.querySelector('#main');
+            @*let Submenu = document.querySelector('.submenu-list');*@
+
+
+            sidebar.onclick = () => {
+                var collection = document.querySelectorAll('.submenu-list');
+                sidebar.classList.toggle('collapse-custom');
+                arrowCollapse.classList.toggle('collapse-custom');
+                if (arrowCollapse.classList.contains('collapse-custom')) {
+                    arrowCollapse.classList = "bi bi-arrow-bar-right logo-icon collapse-custom";
+                    Bodycontent.classList = "container body-content collapse-custom-main-sm";
+
+                    debugger
+                    document.querySelectorAll(".submenu").forEach(e => e.classList.add("submenu-display"));
+@*
+                    for (i in collection) {
+                        i.classList='submenu-display';
+
+                    }
+*@
+         @*           collection.each(function () {
+                        $(this).classList = "submenu submenu-display";
+                    });*@
+
+                } else {
+                    arrowCollapse.classList = "bi bi-arrow-bar-left";
+                    Bodycontent.classList = "container body-content collapse-custom-main-lg";
+
+                    debugger
+
+                    document.querySelectorAll(".submenu").forEach(e => e.classList.remove("submenu-display"));
+                   @* for (i in collection) {
+                        i.classList = 'submenu';
+
+                    }*@
+                  @*  var collection = $(".submenu");
+                    collection.each(function () {
+                        $(this).classList = "submenu";
+                    });*@
+                }
+            }
+        }
+    </script>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>
